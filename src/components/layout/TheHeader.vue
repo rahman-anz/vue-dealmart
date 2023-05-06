@@ -4,13 +4,19 @@
     <nav>
       <ul>
         <li><router-link to="/products">Products</router-link></li>
-        <li><router-link to="/cart">Cart</router-link></li>
+        <li>
+          <shopping-cart-icon class="icon"></shopping-cart-icon
+          ><router-link to="/cart">Cart</router-link>
+          <base-badge color="#6b9997">0</base-badge>
+        </li>
       </ul>
     </nav>
     <button>Login</button>
   </header>
 </template>
-
+<script setup>
+import { ShoppingCartIcon } from "@heroicons/vue/24/outline";
+</script>
 <style scoped>
 @import url("https://fonts.googleapis.com/css2?family=Bungee+Inline&display=swap");
 header {
@@ -26,14 +32,22 @@ header {
 }
 h2 {
   font-family: "Bungee Inline", sans-serif;
-  font-size: 3.8rem;
+  font-size: 3.4rem;
 }
 ul {
   list-style: none;
   font-size: 1.8rem;
-  margin-top: 1rem;
+  margin-top: 1.2rem;
   display: flex;
   gap: 8rem;
+}
+li {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.icon {
+  height: 2.2rem;
 }
 a:link,
 a:visited {
@@ -41,6 +55,7 @@ a:visited {
   text-decoration: none;
   padding: 0.3rem 0;
   color: #333;
+  border-bottom: 4px solid transparent;
 }
 
 a:hover,

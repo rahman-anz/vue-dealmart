@@ -19,7 +19,7 @@ html {
   color: #333;
 }
 body {
-  background-color: #dafcf6;
+  /* background-color: #edfdfa; */
   font-family: "Inter", sans-serif;
 }
 </style>

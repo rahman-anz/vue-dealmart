@@ -1,9 +1,16 @@
 <template>
-  <h2>Product List</h2>
+  <ul>
+    <product-item></product-item>
+  </ul>
 </template>
+<script setup>
+import ProductItem from "../product/ProductItem.vue";
+</script>
 <style scoped>
-h2 {
-  text-align: center;
-  font-size: 3rem;
+ul {
+  margin: 4rem auto;
+  display: flex;
+  max-width: 70rem;
+  flex-direction: column;
 }
 </style>
