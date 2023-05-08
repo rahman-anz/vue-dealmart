@@ -7,7 +7,7 @@ const router = createRouter({
   routes: [
     { path: "/", redirect: "/products" },
     { path: "/products", component: ProductList },
-    { path: "/details", component: ProductDetails },
+    { path: "/products/:id", component: ProductDetails, props: true },
     { path: "/cart", component: ShoppingCart },
   ],
 });

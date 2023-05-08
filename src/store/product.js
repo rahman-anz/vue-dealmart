@@ -3,10 +3,34 @@ export const useProductStore = defineStore("product", {
   state: () => ({
     products: [
       {
-        title: "Mens Hairdryer",
-        price: "$44",
-        description: "loremsaa dfdaf asdsd asddas",
+        id: "c1",
+        title: "Campus Mens 5g-820 Running Shoe",
+        price: "₹1,209",
+        details:
+          "Elevate your style with this classy pair of Running Shoes from the house of Campus brand. Featuring a contemporary refined design with exceptional comfort, this pair is perfect to give your quintessential dressing an upgrade.",
+        image: "campus1",
+      },
+      {
+        id: "c2",
+        title: "Campus Mens 5g-820 Running Shoe",
+        price: "₹1,209",
+        details:
+          "Elevate your style with this classy pair of Running Shoes from the house of Campus brand. Featuring a contemporary refined design with exceptional comfort, this pair is perfect to give your quintessential dressing an upgrade.",
+        image: "campus2",
       },
     ],
   }),
+  getters: {
+    getProducts: (state) => {
+      return state.products;
+    },
+    hasProducts: (state) => {
+      return state.products && state.products.length > 0;
+    },
+  },
+  actions: {
+    getProductById(id) {
+      return this.products.find((prod) => prod.id === id);
+    },
+  },
 });
