@@ -4,12 +4,12 @@
     <div class="text-box">
       <h3>{{ title }}</h3>
       <div class="trending"><FireIcon class="icon" /><span>Top</span></div>
-      <p class="price">{{ price }}</p>
+      <p class="price">₹{{ price }}</p>
       <p class="details">{{ details }}</p>
       <div class="container">
         <span class="alert">Only few items left</span>
         <div class="actions">
-          <base-button>Add to cart</base-button>
+          <base-button @click="sendToCart">Add to cart</base-button>
           <base-button mode="flat"
             ><router-link :to="productDetailLink"
               >View Details</router-link
@@ -21,6 +21,7 @@
   </li>
 </template>
 <script setup>
+import { useProductStore } from "@/store/product";
 import { FireIcon } from "@heroicons/vue/24/outline";
 import { defineProps, computed, defineExpose } from "vue";
 import { useRoute } from "vue-router";
@@ -33,15 +34,17 @@ const props = defineProps({
 });
 const route = useRoute();
 const productDetailLink = computed(() => {
-  console.log(route);
   return route.path + "/" + props.id;
 });
-defineExpose({ productDetailLink });
+const store = useProductStore();
+const sendToCart = () => {
+  store.addToCart(props.id);
+};
+defineExpose({ productDetailLink, sendToCart });
 </script>
 <style scoped>
 li {
   list-style: none;
-  height: 26rem;
   display: flex;
   align-items: center;
   background-color: #dafcf6;
@@ -62,7 +65,7 @@ img {
   flex-shrink: 0;
 }
 .text-box {
-  padding: 3rem;
+  padding: 0rem 3rem;
 }
 h3 {
   font-size: 2rem;

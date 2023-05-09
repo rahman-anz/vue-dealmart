@@ -1,7 +1,10 @@
 <template>
   <div class="main-box">
     <div class="left-column">
-      <img src="../../images/campus1.jpg" alt="campus shoes" />
+      <img
+        :src="require(`../../images/${product.image}.jpg`)"
+        alt="campus shoes"
+      />
     </div>
     <div class="right-column">
       <h2>{{ product.title }}</h2>

@@ -7,6 +7,7 @@ defineProps({ color: String });
 </script>
 <style scoped>
 .badge {
+  font-size: 1.8rem;
   background-color: v-bind(color);
   color: aliceblue;
   border-radius: 12px;

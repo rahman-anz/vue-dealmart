@@ -7,16 +7,24 @@
         <li>
           <shopping-cart-icon class="icon"></shopping-cart-icon
           ><router-link to="/cart">Cart</router-link>
-          <base-badge color="#6b9997">0</base-badge>
+          <base-badge v-if="store.hasCartItems" color="#6b9997">{{
+            store.getCartNum
+          }}</base-badge>
         </li>
       </ul>
     </nav>
     <button>Login</button>
   </header>
 </template>
+
 <script setup>
+import { defineExpose } from "vue";
+import { useProductStore } from "@/store/product";
 import { ShoppingCartIcon } from "@heroicons/vue/24/outline";
+const store = useProductStore();
+defineExpose({ store });
 </script>
+
 <style scoped>
 @import url("https://fonts.googleapis.com/css2?family=Bungee+Inline&display=swap");
 header {
