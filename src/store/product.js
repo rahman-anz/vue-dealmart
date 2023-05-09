@@ -39,20 +39,31 @@ export const useProductStore = defineStore("product", {
       return state.cart.products && state.cart.products.length > 0;
     },
     getCartNum(state) {
-      return state.cart.products.length;
+      return state.cart.quantity;
     },
   },
   actions: {
     getProductById(id) {
       return this.products.find((prod) => prod.id === id);
     },
+    getCartItemById(id) {
+      return this.cart.products.find((prod) => prod.id === id);
+    },
     addToCart(id) {
       const selectedItem = this.getProductById(id);
-      this.cart.products.unshift(selectedItem);
+      const existingItem = this.getCartItemById(id);
+      if (!existingItem) {
+        this.cart.products.unshift({ ...selectedItem, quantity: 1 });
+        this.cart.quantity++;
+      } else {
+        existingItem.quantity++;
+        this.cart.quantity++;
+      }
     },
     removeFromCart(id) {
-      const itemIndex = this.cart.products.findIndex((prod) => prod.id === id);
-      this.cart.products.pop(itemIndex, 1);
+      const selectedItem = this.getCartItemById(id);
+      this.cart.quantity -= selectedItem.quantity;
+      this.cart.products.pop(selectedItem, 1);
     },
   },
 });

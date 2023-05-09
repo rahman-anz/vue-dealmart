@@ -13,6 +13,7 @@
         :title="prod.title"
         :price="prod.price"
         :image="prod.image"
+        :quantity="prod.quantity"
       ></cart-item>
     </ul>
   </section>

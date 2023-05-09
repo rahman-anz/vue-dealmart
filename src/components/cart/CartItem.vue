@@ -4,8 +4,8 @@
     <div class="text-box">
       <button @click="removeItem"><XCircleIcon class="icon" /></button>
       <h3 class="title">{{ title }}</h3>
-      <h4 class="price">Price per Item : {{ price }}</h4>
-      <h4 class="quantity">Quantity: 0</h4>
+      <h4 class="price">Price per Item :₹{{ price }}</h4>
+      <h4 class="quantity">Quantity: {{ quantity }}</h4>
       <h3 class="total">Total : Rs.2400</h3>
     </div>
   </li>
@@ -21,6 +21,7 @@ const props = defineProps({
   title: String,
   image: String,
   price: String,
+  quantity: Number,
 });
 const store = useProductStore();
 
