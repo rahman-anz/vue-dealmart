@@ -61,7 +61,7 @@ li {
 }
 li img {
   width: 12rem;
-  height: 10rem;
+  height: 12rem;
   object-fit: cover;
   margin: 1rem;
 }

@@ -8,7 +8,7 @@
     </div>
     <div class="right-column">
       <h2>{{ product.title }}</h2>
-      <p class="price">{{ product.price }}</p>
+      <p class="price">₹{{ product.price }}</p>
     </div>
   </div>
 </template>
@@ -39,5 +39,14 @@ defineExpose({ product });
   width: 55%;
   display: flex;
   flex-direction: column;
+}
+.right-column h2 {
+  font-size: 2rem;
+  text-align: center;
+  margin: 3rem;
+}
+.price {
+  font-size: 1.8rem;
+  text-align: center;
 }
 </style>
