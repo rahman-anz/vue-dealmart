@@ -82,11 +82,9 @@ export const useProductStore = defineStore("product", {
     },
     minusQuantity(id) {
       const selectedItem = this.getCartItemById(id);
-      if (selectedItem.quantity > 1) {
-        selectedItem.quantity--;
-        this.cart.quantity--;
-        this.cart.totalAmount -= selectedItem.price;
-      }
+      selectedItem.quantity--;
+      this.cart.quantity--;
+      this.cart.totalAmount -= selectedItem.price;
     },
   },
 });
