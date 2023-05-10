@@ -5,7 +5,7 @@ export const useProductStore = defineStore("product", {
       {
         id: "c1",
         title: "Campus Mens 5g-820 Running Shoe",
-        price: "1,209",
+        price: 2499,
         details:
           "Elevate your style with this classy pair of Running Shoes from the house of Campus brand. Featuring a contemporary refined design with exceptional comfort, this pair is perfect to give your quintessential dressing an upgrade.",
         image: "campus1",
@@ -13,16 +13,24 @@ export const useProductStore = defineStore("product", {
       {
         id: "c2",
         title: "Highlander Sneakers For Men - Grey",
-        price: "1,499",
+        price: 1250,
         details:
           "Elevate your style with this classy pair of Running Shoes from the house of Campus brand. Featuring a contemporary refined design with exceptional comfort, this pair is perfect to give your quintessential dressing an upgrade.",
         image: "campus2",
+      },
+      {
+        id: "c3",
+        title: "Puma Firefly Walking Shoes For Men",
+        price: 2700,
+        details:
+          "PUMA has made history as a creator of fast product designs for the fastest athletes on the planet: We enhance sports such as football, running and training, golf, basketball and motorsports with performance and sport-inspired lifestyle products.",
+        image: "campus3",
       },
     ],
     cart: {
       products: [],
       quantity: 0,
-      amount: 0,
+      totalAmount: 0,
     },
   }),
   getters: {
@@ -41,6 +49,9 @@ export const useProductStore = defineStore("product", {
     getCartNum(state) {
       return state.cart.quantity;
     },
+    getCartAmount(state) {
+      return state.cart.totalAmount;
+    },
   },
   actions: {
     getProductById(id) {
@@ -54,16 +65,28 @@ export const useProductStore = defineStore("product", {
       const existingItem = this.getCartItemById(id);
       if (!existingItem) {
         this.cart.products.unshift({ ...selectedItem, quantity: 1 });
-        this.cart.quantity++;
       } else {
         existingItem.quantity++;
-        this.cart.quantity++;
       }
+      this.cart.quantity++;
+      this.cart.totalAmount += selectedItem.price;
     },
     removeFromCart(id) {
-      const selectedItem = this.getCartItemById(id);
+      const selectedItemIndex = this.cart.products.findIndex(
+        (prod) => prod.id === id
+      );
+      const selectedItem = this.cart.products[selectedItemIndex];
       this.cart.quantity -= selectedItem.quantity;
-      this.cart.products.pop(selectedItem, 1);
+      this.cart.totalAmount -= selectedItem.quantity * selectedItem.price;
+      this.cart.products.splice(selectedItemIndex, 1);
+    },
+    minusQuantity(id) {
+      const selectedItem = this.getCartItemById(id);
+      if (selectedItem.quantity > 1) {
+        selectedItem.quantity--;
+        this.cart.quantity--;
+        this.cart.totalAmount -= selectedItem.price;
+      }
     },
   },
 });

@@ -29,7 +29,7 @@ defineExpose({ store });
 @import url("https://fonts.googleapis.com/css2?family=Bungee+Inline&display=swap");
 header {
   background-color: #47efd0;
-  height: 9rem;
+  height: 7rem;
   padding: 0 3%;
   margin: 0 13%;
   display: flex;
@@ -37,15 +37,18 @@ header {
   justify-content: space-between;
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
+  position: sticky;
+  top: 0;
+  z-index: 4;
 }
 h2 {
   font-family: "Bungee Inline", sans-serif;
-  font-size: 3.4rem;
+  font-size: 3.2rem;
 }
 ul {
   list-style: none;
   font-size: 1.8rem;
-  margin-top: 1.2rem;
+  margin-top: 0.8rem;
   display: flex;
   gap: 8rem;
 }
@@ -66,7 +69,9 @@ a:visited {
   border-bottom: 4px solid transparent;
 }
 
-a:hover,
+a:hover {
+  border-bottom: 4px dotted whitesmoke;
+}
 a:active,
 a.router-link-active {
   border-bottom: 4px solid whitesmoke;

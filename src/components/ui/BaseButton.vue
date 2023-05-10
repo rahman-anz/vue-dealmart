@@ -12,11 +12,14 @@ button {
   border: 2px solid transparent;
   cursor: pointer;
   border-radius: 12px;
-  border: none;
   font-size: 1.4rem;
 }
 button:hover {
-  scale: 1.05;
+  background-color: #edfdfa;
+  border: 2px solid #0de5a8;
+}
+button:active {
+  background-color: #0de5a8;
 }
 .flat {
   background-color: #edfdfa;

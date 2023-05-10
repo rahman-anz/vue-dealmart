@@ -3,11 +3,13 @@
     <img :src="require(`../../images/${image}.jpg`)" />
     <div class="text-box">
       <h3>{{ title }}</h3>
-      <div class="trending"><FireIcon class="icon" /><span>Top</span></div>
+      <div v-if="highPrice" class="trending">
+        <FireIcon class="icon" /><span>Top</span>
+      </div>
       <p class="price">₹{{ price }}</p>
       <p class="details">{{ details }}</p>
       <div class="container">
-        <span class="alert">Only few items left</span>
+        <span v-if="highPrice" class="alert">Only few items left !</span>
         <div class="actions">
           <base-button @click="sendToCart">Add to cart</base-button>
           <base-button mode="flat"
@@ -29,7 +31,7 @@ const props = defineProps({
   image: String,
   id: String,
   title: String,
-  price: String,
+  price: Number,
   details: String,
 });
 const route = useRoute();
@@ -40,6 +42,10 @@ const store = useProductStore();
 const sendToCart = () => {
   store.addToCart(props.id);
 };
+const highPrice = computed(() => {
+  if (props.price > 2000) return true;
+  else return false;
+});
 defineExpose({ productDetailLink, sendToCart });
 </script>
 <style scoped>
@@ -89,6 +95,7 @@ h3 {
 .actions {
   display: flex;
   justify-content: flex-end;
+  margin-left: auto;
   gap: 1.2rem;
 }
 a:link,
@@ -114,6 +121,6 @@ a:visited {
 }
 .alert {
   color: red;
-  font-size: 1.3rem;
+  font-size: 1.4rem;
 }
 </style>

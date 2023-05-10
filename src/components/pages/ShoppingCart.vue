@@ -1,9 +1,9 @@
 <template>
   <section>
     <h2>Your Cart</h2>
-    <div class="total-amount">
+    <div v-if="store.getCartAmount" class="total-amount">
       <h3>Total Amount:</h3>
-      <base-badge color="#32a792">₹2014</base-badge>
+      <base-badge color="#32a792">₹ {{ store.getCartAmount }}</base-badge>
     </div>
     <ul v-if="store.hasCartItems">
       <cart-item
@@ -15,7 +15,9 @@
         :image="prod.image"
         :quantity="prod.quantity"
       ></cart-item>
+      <base-button>Checkout</base-button>
     </ul>
+    <p v-else class="empty-msg">No items in cart 🤔</p>
   </section>
 </template>
 
@@ -37,7 +39,7 @@ h2 {
   text-align: center;
   font-size: 2.2rem;
   margin-bottom: 2rem;
-  border-bottom: 2px solid #999;
+  border-bottom: 1.5px solid #999;
   padding-bottom: 1rem;
 }
 
@@ -55,5 +57,9 @@ ul {
   flex-direction: column;
   align-items: center;
   gap: 2rem;
+}
+.empty-msg {
+  font-size: 1.8rem;
+  text-align: center;
 }
 </style>
