@@ -23,6 +23,5 @@ button:active {
 }
 .flat {
   background-color: #edfdfa;
-  border: 1.3px solid #0de5a8;
 }
 </style>

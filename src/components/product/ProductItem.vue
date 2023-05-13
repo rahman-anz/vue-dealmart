@@ -12,10 +12,8 @@
         <span v-if="highPrice" class="alert">Only few items left !</span>
         <div class="actions">
           <base-button @click="sendToCart">Add to cart</base-button>
-          <base-button mode="flat"
-            ><router-link :to="productDetailLink"
-              >View Details</router-link
-            ></base-button
+          <router-link :to="productDetailLink"
+            ><base-button mode="flat">View Details</base-button></router-link
           >
         </div>
       </div>
@@ -122,5 +120,10 @@ a:visited {
 .alert {
   color: red;
   font-size: 1.4rem;
+}
+a:link,
+a:visited {
+  border-radius: 12px;
+  border: 1.3px solid #0de5a8;
 }
 </style>
