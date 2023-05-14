@@ -1,11 +1,15 @@
 <template>
   <li>
-    <img :src="require(`../../images/${image}.jpg`)" />
+    <router-link :to="productDetailLink">
+      <img :src="require(`../../images/${image}.jpg`)"
+    /></router-link>
     <div class="text-box">
       <button class="btn-close" @click="removeItem">
         <XCircleIcon class="icon-close" />
       </button>
-      <h3 class="title">{{ title }}</h3>
+      <router-link class="title" :to="productDetailLink">{{
+        title
+      }}</router-link>
       <h4 class="price">Price per Item : ₹ {{ price }}</h4>
       <div class="quantity">
         <h4 class="quantity-heading">Quantity :</h4>
@@ -50,7 +54,11 @@ const minmQuantity = computed(() => {
   if (store.getCartItemById(props.id).quantity > 1) return true;
   else return false;
 });
-defineExpose({ removeItem, addQuantity, minusQuantity, minmQuantity });
+const productDetailLink = computed(() => {
+  return "/products/" + props.id;
+});
+
+defineExpose({ removeItem, addQuantity, minusQuantity });
 </script>
 
 <style scoped>
@@ -84,8 +92,11 @@ li img {
   stroke: aliceblue;
 }
 .title {
+  display: inline-block;
   font-size: 1.6rem;
-  margin: 1rem 0 1.8rem 0;
+  text-decoration: none;
+  color: #065748;
+  margin: 1rem 0 1.5rem 0;
 }
 .price,
 .quantity {
@@ -108,7 +119,7 @@ li img {
 }
 .icon-quantity {
   height: 2rem;
-  fill: #27796a;
+  fill: #004538;
   stroke: aliceblue;
 }
 .total {

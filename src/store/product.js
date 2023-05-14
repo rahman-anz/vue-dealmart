@@ -9,6 +9,7 @@ export const useProductStore = defineStore("product", {
         details:
           "Elevate your style with this classy pair of Running Shoes from the house of Campus brand. Featuring a contemporary refined design with exceptional comfort, this pair is perfect to give your quintessential dressing an upgrade.",
         image: "product1",
+        rating: 4.5,
       },
       {
         id: "c2",
@@ -17,6 +18,7 @@ export const useProductStore = defineStore("product", {
         details:
           "Elevate your style with this classy pair of Running Shoes from the house of Campus brand. Featuring a contemporary refined design with exceptional comfort, this pair is perfect to give your quintessential dressing an upgrade.",
         image: "product2",
+        rating: 4,
       },
       {
         id: "c3",
@@ -25,6 +27,7 @@ export const useProductStore = defineStore("product", {
         details:
           "PUMA has made history as a creator of fast product designs for the fastest athletes on the planet: We enhance sports such as football, running and training, golf, basketball and motorsports with performance and sport-inspired lifestyle products.",
         image: "product3",
+        rating: 3.5,
       },
     ],
     cart: {

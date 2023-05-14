@@ -10,6 +10,9 @@ const router = createRouter({
     { path: "/products/:id", component: ProductDetails, props: true },
     { path: "/cart", component: ShoppingCart },
   ],
+  scrollBehavior() {
+    return { top: 0, scrollBehavior: "smooth" };
+  },
 });
 
 export default router;
