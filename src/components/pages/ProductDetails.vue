@@ -39,7 +39,7 @@
         </p>
         <star-rating
           class="rating"
-          star-size="20"
+          star-size=20
           :increment="0.5"
           :rating="rating"
           :read-only="true"
@@ -183,5 +183,8 @@ defineExpose({ product, activateCover, coverImg });
   .left-column{
     position: unset;
   }
+.img-gallery img{
+  width: 18%;
+}
 }
 </style>
