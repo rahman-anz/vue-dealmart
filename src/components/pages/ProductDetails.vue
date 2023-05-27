@@ -89,7 +89,7 @@ defineExpose({ product, activateCover, coverImg });
 .left-column {
   align-self: flex-start;
   position: sticky;
-  width: 46%;
+  flex-basis: 46%;
   top: 8rem;
 }
 .cover-img {
@@ -105,7 +105,7 @@ defineExpose({ product, activateCover, coverImg });
 .img-gallery img {
   margin-top: 2rem;
   width: 100%;
-  object-fit: contain;
+  object-fit:scale-down;
   border-radius: 7px;
   border: 1px solid rgba(0, 0, 0, 0.367);
   cursor: pointer;
@@ -117,7 +117,7 @@ defineExpose({ product, activateCover, coverImg });
 
 .right-column {
   background-color: #edfdfa;
-  width: 55%;
+  flex-basis: 55%;
   display: flex;
   flex-direction: column;
   padding: 3rem 1rem;
