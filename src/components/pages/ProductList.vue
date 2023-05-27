@@ -22,8 +22,14 @@ defineExpose({ store });
 ul {
   margin: 4rem auto;
   display: flex;
-  max-width: 70rem;
+  max-width: 80rem;
   flex-direction: column;
   gap: 3rem;
+}
+@media (max-width: 46em) {
+  ul {
+    margin: 2rem auto;
+    max-width: 38rem;
+  }
 }
 </style>

@@ -13,7 +13,7 @@
         </li>
       </ul>
     </nav>
-    <button>Login</button>
+    <!-- <button>Login</button> -->
   </header>
 </template>
 
@@ -21,6 +21,7 @@
 import { defineExpose } from "vue";
 import { useProductStore } from "@/store/product";
 import { ShoppingCartIcon } from "@heroicons/vue/24/outline";
+// import { Bars3Icon } from "@heroicons/vue/24/outline";
 const store = useProductStore();
 defineExpose({ store });
 </script>
@@ -31,7 +32,7 @@ header {
   background-color: #47efd0;
   height: 7rem;
   padding: 0 3%;
-  margin: 0 13%;
+  margin: 0 10%;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -50,7 +51,7 @@ ul {
   font-size: 1.8rem;
   margin-top: 0.8rem;
   display: flex;
-  gap: 8rem;
+  gap: 6vw;
 }
 li {
   display: flex;
@@ -76,12 +77,27 @@ a:active,
 a.router-link-active {
   border-bottom: 4px solid whitesmoke;
 }
-button {
+/* button {
   border: 2px solid whitesmoke;
   padding: 1rem 2rem;
   border-radius: 20px;
   font-size: 1.5rem;
   cursor: pointer;
   background-color: transparent;
+} */
+@media (max-width: 46em) {
+  header {
+    margin: 0 1%;
+  }
+  h2 {
+    font-size: 2.5rem;
+  }
+  ul {
+    font-size: 1.4rem;
+    gap: 2.1rem;
+  }
+  .icon {
+    font-size: 1.8rem;
+  }
 }
 </style>

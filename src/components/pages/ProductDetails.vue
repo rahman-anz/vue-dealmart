@@ -100,10 +100,10 @@ defineExpose({ product, activateCover, coverImg });
 .img-gallery {
   display: flex;
   width: 100%;
-  gap: 0.3rem;
+  gap: 1rem;
 }
 .img-gallery img {
-  margin-top: 0.5rem;
+  margin-top: 2rem;
   width: 100%;
   object-fit: contain;
   border-radius: 7px;
@@ -171,5 +171,17 @@ defineExpose({ product, activateCover, coverImg });
 }
 .filled {
   fill: gold;
+}
+@media (max-width: 46em){
+  .main-box{
+    flex-direction: column;
+    margin: 1rem 5%;
+  }
+  .left-column,.right-column{
+    width: 100%;
+  }
+  .left-column{
+    position: unset;
+  }
 }
 </style>

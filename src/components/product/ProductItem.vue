@@ -62,8 +62,8 @@ li {
   box-shadow: 0 1.4rem 2.8rem rgba(0, 0, 0, 0.14);
 } */
 img {
-  height: 24rem;
-  width: 24rem;
+  height: 25rem;
+  width: 25rem;
   object-fit: cover;
   border-radius: 12px;
   flex-shrink: 0;
@@ -72,17 +72,17 @@ img {
   padding: 0rem 3rem;
 }
 h3 {
-  font-size: 2rem;
+  font-size: 2.2rem;
   margin-bottom: 1rem;
 }
 .price {
-  font-size: 1.5rem;
+  font-size: 1.7rem;
   margin-bottom: 3rem;
   font-weight: 600;
 }
 .details {
-  font-size: 1.2rem;
-  margin-bottom: 3rem;
+  font-size: 1.55rem;
+  margin-bottom: 3.4rem;
   line-height: 1.6;
 }
 .container {
@@ -109,11 +109,11 @@ a:visited {
 }
 .icon {
   stroke: red;
-  height: 2rem;
+  height: 2.2rem;
 }
 .trending span {
   color: red;
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   text-transform: uppercase;
   overflow: visible;
 }
@@ -125,5 +125,38 @@ a:link,
 a:visited {
   border-radius: 12px;
   border: 1.3px solid #0de5a8;
+}
+@media (max-width: 46em) {
+  img {
+    height: 28rem;
+    width: 28rem;
+    margin-top: 1rem;
+  }
+  li {
+    margin: 0 2rem;
+    gap: 1.5rem;
+    flex-direction: column;
+    padding-top: 2rem;
+  }
+
+  .details {
+    font-size: 1.2rem;
+    display: none;
+  }
+
+  .price {
+    font-weight: 700;
+    font-size: 1.7rem;
+    margin-bottom: 1.7rem;
+  }
+  .container {
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+  }
+  .actions {
+    margin-bottom: 1rem;
+    margin-left: 0;
+  }
 }
 </style>

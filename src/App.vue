@@ -10,7 +10,7 @@ import TheHeader from "./components/layout/TheHeader.vue";
 <style>
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap");
 html {
-  font-size: 10px;
+  font-size: 62.5%;
 }
 * {
   margin: 0;

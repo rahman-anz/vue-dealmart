@@ -126,4 +126,15 @@ li img {
   font-size: 1.5rem;
   margin: 0.8rem 0 0.7rem 0;
 }
+@media (max-width: 46em) {
+  li {
+    flex-direction: column;
+    position: relative;
+  }
+  .text-box {
+    position: unset;
+    width: 30rem;
+    border-left: none;
+  }
+}
 </style>
